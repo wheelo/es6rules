@@ -3,7 +3,7 @@ ES6语法的支持一般需要ponyfill。Electron/RN/小程序/高版本的node�
 其他的环境使用Babel做ponyfill，注意一些关键字如Reflect，Generator, Proxy并不完全ponyfill
 
 (1) var/let/const关键字
-```js
+```shell
 var: 
     函数作用域(function scoped)
     声明变量前访问该变量返回undefined
@@ -37,6 +37,7 @@ a[6](); // 6
 ```
 
 (2) 函数声明使用箭头表达式
+
 No: 采用传统的方式
 ```js
 function foo() {
@@ -52,6 +53,7 @@ let foo = () => {
 ```
 
 (3)使用ES6模块(modules)
+
 Yes: 命名导出，default导出，Re-exporting
 ```js
 // lib.js
@@ -77,6 +79,7 @@ if (Math.random()) {
 ```
 
 (4) 字符串连接
+
 No: 采用传统的`+`来连接
 ```js
 let message = 'Hello ' + name + ", it's " + time + '  now'
@@ -87,6 +90,7 @@ let message = `Hello ${name}, it's ${time} now`
 ```
 
 (5)解构赋值
+
 No: 直接赋值
 ```js
 let data = { name: 'dys', age: 1 };
@@ -107,6 +111,7 @@ const [first, last, ...others] = [1, 2, 3, 6, 8];
 ```
 
 (6)使用类class
+
 No: 采用函数原型链实现继承
 
 Yes: 采用ES6中的类(代码可读性高)
@@ -153,6 +158,7 @@ console.log(Object.keys(c)); // []
 ```
 
 (7) 优先使用函数式编程
+
 No: 使用for循环编程
 ```js
 for(i = 1; i <= 10; i++) {
@@ -166,6 +172,7 @@ let b = a.map(item => ++item)
 ```
 
 (8) 避免过多的if else
+
 No: if else过多
 ```js
 if (a === 1) {
@@ -201,6 +208,7 @@ let handler = {
 ```
 
 (9) 优先使用Map与Set(WeakMap, WeakSet)
+
 Yes: Dom中使用WeakMap存储数据
 ```js
 // Map与Set集成了丰富的操作集合的方法，has, get, remove, entries..
@@ -214,6 +222,8 @@ wm.get(element) // "some information"
 ```
 
 (10)对象赋值与扩展
+
+Yes: 使用spread语法与Object.assign来实现赋值
 ```js
 let obj3 = Object.assign(obj1, obj2)
 let obj4 = {...ob1, ...obj2 };
@@ -223,6 +233,7 @@ const array = [...set]; // 或者Array.from(set)
 ```
 
 (11) 异步编程，尽量使用Promise
+
 No: 使用回调的方式
 ```js
 function isGreater (a, b, cb) {
@@ -265,6 +276,7 @@ isGreater(1, 2)
 ```
 
 (12)避免for..in中的继承属性
+
 No: 使用for..in不处理继承属性
 ```js
 for(let props in obj) {
@@ -290,6 +302,8 @@ Object.keys(obj).forEach(props =>
 ```
 
 (13)适当使用bind/apply/call指定函数调用过程中的this指向
+
+Yes: 使用bind来动态改变this指向
 ```js
 function f(y, z) {
     return this.x + y + z;

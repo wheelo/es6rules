@@ -1,4 +1,3 @@
-# ES5/ES6代码编写规范
 # ES5/6开发规范
 ES6语法的支持一般需要ponyfill或[polifill](https://en.wikipedia.org/wiki/Polyfill)。Electron/RN/小程序/高版本的node可直接使用ES6规范编程
 其他的环境使用Babel做ponyfill，一些特性如Reflect，Generator, Proxy等并不完全可以ponyfill

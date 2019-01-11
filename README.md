@@ -161,7 +161,7 @@ for(i = 1; i <= 10; i++) {
 ```
 
 Yes: 使用函数式编程
-```
+```js
 let b = a.map(item => ++item)
 ```
 
@@ -180,7 +180,7 @@ else if (a === 3) {
 ```
 
 Yes: 使用switch
-```
+```js
 switch(a) {
     case 1:
         ...

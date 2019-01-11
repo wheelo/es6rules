@@ -291,8 +291,8 @@ Object.keys(obj).forEach(props =>
 
 (13)适当使用bind/apply/call指定函数调用过程中的this指向
 ```js
-function f(y, z){
-	return this.x + y + z;
+function f(y, z) {
+    return this.x + y + z;
 }
 let m = f.bind({x : 1}, 2);
 console.log(m(3)); //6
